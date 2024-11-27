@@ -1,0 +1,14 @@
+{% assign transaction_count = transactions | size %}
+{% if transaction_count > 0 %}
+  {% for transaction in transactions %}
+    {% if transaction.show_buyer_pending_payment_instructions? %}
+      {{ transaction.buyer_pending_payment_notice }}
+      {% for instruction in transaction.buyer_pending_payment_instructions %}
+        {{ instruction.header }}
+      {% endfor %}
+      Amount: {% for instruction in transaction.buyer_pending_payment_instructions %}
+        {{ instruction.value }}
+      {% endfor %} {{ transaction.amount | money }}
+    {% endif %}
+  {% endfor %}
+{% endif %}
