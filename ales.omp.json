@@ -39,6 +39,14 @@
 					"template": "  {{ .Major }} "
 				},
 				{
+					"type": "dotnet",
+					"style": "powerline",
+					"powerline_symbol": "",
+					"foreground": "#000000",
+					"background": "#00ffff",
+					"template": "  {{ .Major }}.{{ .Minor }}  "
+				},
+				{
 					"background": "#FFFFFF",
 					"foreground": "#b40000",
 					"powerline_symbol": "\ue0b0",
