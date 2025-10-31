@@ -4,6 +4,8 @@
 
 https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql/blob/main/README.md#2-services-configuration
 
+## .csproj
+
 ```
 <ItemGroup>
 	<PackageReference Include="Microsoft.Build.Tasks.Core" Version="17.14.28" />
@@ -17,12 +19,15 @@ https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql/blob/main/R
 </ItemGroup>
 ```
 
+## appsettings.json
 
 ```
 "ConnectionStrings": {
   "MysqlConnection": "server=192.168.168.102;user=root;password=mysecretpassword;database=reepolee"
 },
 ```
+
+## terminal
 
 ```sh
 dotnet ef dbcontext scaffold "Name=ConnectionStrings:MysqlConnection" Pomelo.EntityFrameworkCore.MySql --output-dir Models --context-dir Data --table users
