@@ -12,7 +12,7 @@ podman run --tz=local --name eexpose5 -d -p 3000:3000 -v /Users/ales/code/eexpos
 
 # mysql
 # podman pull --platform linux/arm64 bitnami/mysql
-#podman run --name mysql  -d -p 3306:3306 -v /Users/ales/podman-volumes/mysql:/bitnami/mysql/data -e MYSQL_ROOT_PASSWORD=mysecretpassword -e MYSQL_USER=ales -e MYSQL_PASSWORD=ales123 mysql
+# podman run --name mysql  -d -p 3306:3306 -v /Users/ales/podman-volumes/mysql:/bitnami/mysql/data -e MYSQL_ROOT_PASSWORD=mysecretpassword -e MYSQL_USER=ales -e MYSQL_PASSWORD=ales123 mysql
 
 # postgres
 # podman pull --platform linux/arm64 cgr.dev/chainguard/postgres
