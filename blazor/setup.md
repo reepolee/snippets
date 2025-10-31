@@ -1,5 +1,8 @@
 # Blazor .NET 10 setup 
 
+## Generate a project from VS 2026 Insiders as it only supports .NET10 Preview.
+
+
 ## To use MariaDB or MySQL with EntityFramework
 
 https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql/blob/main/README.md#2-services-configuration
