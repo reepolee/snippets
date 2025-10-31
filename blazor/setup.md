@@ -35,3 +35,15 @@ https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql/blob/main/R
 ```sh
 dotnet ef dbcontext scaffold "Name=ConnectionStrings:MysqlConnection" Pomelo.EntityFrameworkCore.MySql --output-dir Models --context-dir Data --table users
 ```
+
+## http file to test endpoints
+
+```
+@HostAddress = https://localhost:7250
+
+GET {{HostAddress}}/api/users
+Accept: application/json
+
+###
+
+```
