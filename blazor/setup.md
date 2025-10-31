@@ -25,5 +25,5 @@ https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql/blob/main/R
 ```
 
 ```sh
-dotnet ef dbcontext scaffold "Name=ConnectionStrings:MysqlConnection" Pomelo.EntityFrameworkCore.MySql --output-dir Models --context-dir Data --schema users
+dotnet ef dbcontext scaffold "Name=ConnectionStrings:MysqlConnection" Pomelo.EntityFrameworkCore.MySql --output-dir Models --context-dir Data --table users
 ```
