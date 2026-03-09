@@ -1,0 +1,19 @@
+Windows Registry Editor Version 5.00
+
+; -----------------------------
+; Open in VS Code - folder menu
+; -----------------------------
+[HKEY_CLASSES_ROOT\Directory\shell\VSCode]
+@="Open in VS Code"
+
+[HKEY_CLASSES_ROOT\Directory\shell\VSCode\command]
+@="\"C:\\Program Files\\Microsoft VS Code\\Code.exe\" \"%1\""
+
+; ----------------------------------------
+; Open in VS Code - folder background menu
+; ----------------------------------------
+[HKEY_CLASSES_ROOT\Directory\Background\shell\VSCode]
+@="Open in VS Code"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\VSCode\command]
+@="\"C:\\Program Files\\Microsoft VS Code\\Code.exe\" \"%V\""
