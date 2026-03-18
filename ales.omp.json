@@ -1,7 +1,10 @@
 {
 	"$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+	"version": 3,
+	"console_title_template": "{{.UserName}} on {{.HostName}}",
 	"blocks": [
 		{
+			"type": "prompt",
 			"alignment": "left",
 			"segments": [
 				{
@@ -16,51 +19,73 @@
 					]
 				},
 				{
+					"type": "bun",
+					"style": "powerline",
+					"powerline_symbol": "\ue0b0",
+					"foreground": "#e5e7eb",
+					"background": "#111111",
+					"display_mode": "files",
+					"options": {
+						"fetch_version": true,
+						"files": [
+							"bun.lock"
+						]
+					},
+					"template": " \ue22e {{ .Major }}.{{ .Minor }}.{{ .Patch }} "
+				},
+				{
+					"type": "node",
+					"style": "powerline",
+					"powerline_symbol": "\ue0b0",
 					"background": "#2c682c",
 					"foreground": "#ffffff",
-					"powerline_symbol": "\ue0b0",
-					"properties": {
-						"fetch_version": true
+					"display_mode": "files",
+					"options": {
+						"fetch_version": true,
+						"files": [
+							"package.json"
+						]
 					},
-					"style": "powerline",
-					"template": " \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Major }} ",
-					"type": "node"
+					"template": "{{ if not (glob \"bun.lock\") }} \ue718 {{ .Major }} {{ end }}"
 				},
 				{
 					"type": "svelte",
 					"display_mode": "always",
-					"properties": {
+					"options": {
 						"fetch_version": true
 					},
 					"style": "powerline",
-					"powerline_symbol": "",
 					"foreground": "#FFF",
 					"background": "#fc3a15",
-					"template": "  {{ .Major }} "
+					"template": "  {{ .Major }} "
 				},
 				{
 					"type": "dotnet",
 					"style": "powerline",
-					"powerline_symbol": "",
 					"foreground": "#000000",
 					"background": "#00ffff",
-					"template": "  {{ .Major }}.{{ .Minor }}  "
+					"template": "  {{ .Major }}.{{ .Minor }}  "
 				},
 				{
+					"type": "path",
+					"style": "powerline",
+					"powerline_symbol": "\ue0b0",
 					"background": "#FFFFFF",
 					"foreground": "#b40000",
-					"powerline_symbol": "\ue0b0",
-					"properties": {
+					"options": {
 						"folder_separator_icon": " \ue0b1 ",
 						"home_icon": "~",
 						"style": "folder"
 					},
-					"style": "powerline",
 					"template": " \uea83 {{ .Path }}",
-					"trailing_diamond": "\ue0b0",
-					"type": "path"
+					"trailing_diamond": "\ue0b0"
 				},
 				{
+					"type": "git",
+					"style": "powerline",
+					"leading_diamond": "\ue0b6",
+					"powerline_symbol": "\ue0b0",
+					"trailing_diamond": "\ue0b4",
 					"foreground": "#111111",
 					"background": "#ffffff",
 					"background_templates": [
@@ -69,31 +94,23 @@
 						"{{ if gt .Ahead 0 }}#B388FF{{ end }}",
 						"{{ if gt .Behind 0 }}#B388FF{{ end }}"
 					],
-					"leading_diamond": "\ue0b6",
-					"powerline_symbol": "\ue0b0",
-					"properties": {
+					"options": {
 						"branch_max_length": 25,
 						"fetch_stash_count": true,
 						"fetch_status": true,
 						"fetch_upstream_icon": true
 					},
-					"style": "powerline",
-					"template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
-					"trailing_diamond": "\ue0b4",
-					"type": "git"
+					"template": " {{ .UpstreamIcon }}{{ .HEAD }}{{ if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} "
 				},
 				{
+					"type": "root",
+					"style": "powerline",
+					"powerline_symbol": "\ue0b0",
 					"background": "#ffffff",
 					"foreground": "#111111",
-					"powerline_symbol": "\ue0b0",
-					"style": "powerline",
-					"template": " \uf0ad ",
-					"type": "root"
+					"template": " \uf0ad "
 				}
-			],
-			"type": "prompt"
+			]
 		}
-	],
-	"console_title_template": "{{.UserName}} on {{.HostName}}",
-	"version": 3
+	]
 }
