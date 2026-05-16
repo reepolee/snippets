@@ -31,7 +31,7 @@
 							"bun.lock"
 						]
 					},
-					"template": " \1F407 {{ .Major }}.{{ .Minor }}.{{ .Patch }} "
+					"template": "🧅 {{ .Major }}.{{ .Minor }}.{{ .Patch }} "
 				},
 				{
 					"type": "node",
