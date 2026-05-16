@@ -12,7 +12,7 @@
 					"style": "powerline",
 					"template": " {{ .Icon }} ",
 					"background_templates": [
-						"{{ if eq .OS \"windows\" }}#37699e{{ else if eq .OS \"darwin\" }}#FFF{{ else }}#111{{ end }}"
+						"{{ if eq .OS \"windows\" }}#37699e{{ else if eq .OS \"darwin\" }}#FFF{{ else }}#E95420{{ end }}"
 					],
 					"foreground_templates": [
 						"{{ if eq .OS \"windows\" }}#FFF{{ else if eq .OS \"darwin\" }}#111{{ else }}#FFF{{ end }}"
