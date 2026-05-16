@@ -21,7 +21,7 @@
 				{
 					"type": "bun",
 					"style": "powerline",
-					"powerline_symbol": "\ue0b0",
+					"powerline_symbol": "\ue76f",
 					"foreground": "#e5e7eb",
 					"background": "#111111",
 					"display_mode": "files",
