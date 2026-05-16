@@ -21,7 +21,7 @@
 				{
 					"type": "bun",
 					"style": "powerline",
-					"powerline_symbol": "\ue76f",
+					"powerline_symbol": "\ue0b0",
 					"foreground": "#e5e7eb",
 					"background": "#111111",
 					"display_mode": "files",
@@ -31,7 +31,7 @@
 							"bun.lock"
 						]
 					},
-					"template": " \ue22e {{ .Major }}.{{ .Minor }}.{{ .Patch }} "
+					"template": " \ue76f {{ .Major }}.{{ .Minor }}.{{ .Patch }} "
 				},
 				{
 					"type": "node",
