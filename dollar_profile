@@ -1,0 +1,10 @@
+oh-my-posh --init --shell pwsh --config C:/bat/Terminal-setup/ales.omp.json | Invoke-Expression
+Import-Module PSReadLine
+#Import-Module Terminal-Icons
+Set-PSReadLineOption -PredictionSource History
+Set-PSReadLineOption -PredictionViewStyle ListView
+Set-PSReadLineOption -EditMode Windows
+
+function ll {
+	ls.exe -lah --color @args
+}
