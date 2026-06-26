@@ -1,0 +1,18 @@
+[alias]
+        lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+        sync-main = !git fetch upstream && git checkout main && git reset --hard upstream/main && git push origin main
+        pushf = push origin HEAD
+        c = commit
+        revert-last = !git revert HEAD --no-edit && git push
+        feature = "!f() { BRANCH=${1:-$(hostname)-$(date +%m-%d-%H-%M)}; git sync-main && git push origin main --force && git checkout -b $BRANCH && git push -u origin $BRANCH; }; f"
+        undo-last = reset --soft HEAD~1
+        unstage-last = reset HEAD~1
+[pull]
+        rebase = true
+[core]
+        excludesfile = C:\\Users\\ales\\.gitignore
+        editor = code --wait
+        autocrlf = false
+[user]
+        name = Aleš Vaupotič
+        email = ales@vaupotic.eu
