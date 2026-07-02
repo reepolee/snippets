@@ -1,0 +1,198 @@
+# ~/.zshrc
+
+# ------------------------------------------------------------------------------
+# Exit if not interactive
+# ------------------------------------------------------------------------------
+[[ -o interactive ]] || return
+
+# ------------------------------------------------------------------------------
+# History
+# ------------------------------------------------------------------------------
+HISTSIZE=1000
+SAVEHIST=2000
+HISTFILE="$HOME/.zsh_history"
+
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+setopt HIST_VERIFY
+
+# ------------------------------------------------------------------------------
+# Environment
+# ------------------------------------------------------------------------------
+
+export HOME="/home/ales"
+
+# Editor
+if [[ -n "$SSH_CONNECTION" ]]; then
+  export EDITOR=nano
+else
+  export EDITOR=code
+fi
+
+# Local binaries
+export PATH="$HOME/.local/bin:$PATH"
+
+# Volta (Node.js version manager)
+export VOLTA_HOME="$HOME/.volta"
+[[ -d "$VOLTA_HOME/bin" ]] && export PATH="$VOLTA_HOME/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+[[ -d "$PNPM_HOME" ]] && export PATH="$PNPM_HOME:$PATH"
+
+# Zvm (Zig version manager)
+export ZVM_INSTALL="$HOME/.zvm"
+[[ -d "$ZVM_INSTALL/bin" ]] && export PATH="$ZVM_INSTALL/bin:$PATH"
+
+# Zig
+[[ -f "$HOME/.zvm/self_contained/zig/zig" ]] && export PATH="$HOME/.zvm/self_contained/zig:$PATH"
+
+# pipx
+[[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
+
+# Bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Cargo
+[[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
+
+# Vite+
+[[ -f "$HOME/.vite-plus/env" ]] && source "$HOME/.vite-plus/env"
+
+# ------------------------------------------------------------------------------
+# lesspipe
+# ------------------------------------------------------------------------------
+
+[[ -x /usr/bin/lesspipe ]] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# ------------------------------------------------------------------------------
+# Debian chroot
+# ------------------------------------------------------------------------------
+
+if [[ -z "${debian_chroot:-}" && -r /etc/debian_chroot ]]; then
+  debian_chroot="$(< /etc/debian_chroot)"
+fi
+
+# ------------------------------------------------------------------------------
+# Prompt
+# ------------------------------------------------------------------------------
+
+autoload -Uz add-zsh-hook
+
+case "$TERM" in
+  xterm-color|*-256color)
+    color_prompt=yes
+    ;;
+esac
+
+if [[ "$color_prompt" == yes ]]; then
+  PS1='${debian_chroot:+($debian_chroot)}%F{green}%n@%m%f:%F{blue}%~%f$ '
+else
+  PS1='${debian_chroot:+($debian_chroot)}%n@%m:%~$ '
+fi
+
+case "$TERM" in
+  xterm*|rxvt*)
+    PS1="%{\e]0;${debian_chroot:+($debian_chroot)}%n@%m: %~\a%}$PS1"
+    ;;
+esac
+
+unset color_prompt force_color_prompt
+
+# ------------------------------------------------------------------------------
+# Oh My Posh
+# ------------------------------------------------------------------------------
+
+eval "$("$HOME/.local/bin/oh-my-posh" init zsh --config ~/.poshthemes/ales.omp.json)"
+
+# ------------------------------------------------------------------------------
+# Colors & completion
+# ------------------------------------------------------------------------------
+
+if command -v dircolors >/dev/null 2>&1; then
+  if [[ -r ~/.dircolors ]]; then
+    eval "$(dircolors -b ~/.dircolors)"
+  else
+    eval "$(dircolors -b)"
+  fi
+
+  alias ls='ls --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+fi
+
+# Completion system (Zsh-native)
+autoload -Uz compinit
+compinit -i
+
+
+# Exclude PowerShell scripts from command completion on Linux/WSL
+zstyle ':completion:*:commands' ignored-patterns '*.ps1'
+zstyle ':completion:*:-command-:*' file-patterns '(*):executables' '*.sh:shell-scripts' '*:all-files'
+
+
+# ------------------------------------------------------------------------------
+# Aliases
+# ------------------------------------------------------------------------------
+
+alias cls='clear'
+
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+alias i='sudo apt install'
+
+alias bd='bun dev'
+alias buc='bun upgrade --canary'
+
+alias f='freebuff'
+
+alias crud='bun generator/resource.ts --translate'
+
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history 1 | sed -E "s/^[[:space:]]*[0-9]+[[:space:]]*//; s/[;&|]\s*alert$//")"'
+
+# pnpm aliases
+alias pn='pnpm'
+alias pnd='pnpm dev'
+alias pnb='pnpm build'
+
+# Node.js cleanup
+alias rm-nm='find . -name node_modules -type d -prune -exec rm -rf {} \; 2>/dev/null'
+
+# User aliases
+[[ -f ~/.zsh_aliases ]] && source ~/.zsh_aliases
+
+alias cdwin="cd /mnt/c/Users/ales/code"
+
+# ------------------------------------------------------------------------------
+# Shell plugins
+# ------------------------------------------------------------------------------
+
+[[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+[[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# ------------------------------------------------------------------------------
+# Zellij terminal multiplexer
+# ------------------------------------------------------------------------------
+
+if command -v zellij &>/dev/null; then
+  alias zj='zellij'
+  alias zja='zellij attach -c'
+  alias zjl='zellij list-sessions'
+fi
+
+# ------------------------------------------------------------------------------
+# Startup
+# ------------------------------------------------------------------------------
+
+# Change to code directory on shell start
+# [[ -d "$HOME/code" ]] && cd "$HOME/code"
+
+cdwin
+
