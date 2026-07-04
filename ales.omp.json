@@ -39,7 +39,7 @@
 					"powerline_symbol": "\ue0b0",
 					"background": "#2c682c",
 					"foreground": "#ffffff",
-					"template": "{{ if (glob \"package.json\") }} \ue718 {{ .Major }} {{ end }}"
+					"template": "{{ if (and (glob \"package.json\") (not (glob \"bun.lock\")) (not (glob \"bun.lockb\"))) }}  {{ .Major }} {{ end }}"
 				},
 				{
 					"type": "svelte",
