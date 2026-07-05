@@ -1,0 +1,148 @@
+# %LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState
+{
+	"$help": "https://aka.ms/terminal-documentation",
+	"$schema": "https://aka.ms/terminal-profiles-schema",
+	"actions": [
+		{
+			"command": {
+				"action": "copy",
+				"singleLine": false
+			},
+			"id": "User.copy.644BA8F2"
+		},
+		{
+			"command": "paste",
+			"id": "User.paste"
+		},
+		{
+			"command": {
+				"action": "splitPane",
+				"split": "auto",
+				"splitMode": "duplicate"
+			},
+			"id": "User.splitPane.A6751878"
+		},
+		{
+			"command": "find",
+			"id": "User.find"
+		},
+		{
+			"command": {
+				"action": "sendInput",
+				"input": "\u001b\r"
+			},
+			"id": "User.sendInput.8F63D3A9"
+		}
+	],
+	"centerOnLaunch": false,
+	"copyFormatting": "none",
+	"copyOnSelect": false,
+	"defaultProfile": "{5fb123f1-af88-5b5c-8953-d14a8def1978}",
+	"firstWindowPreference": "defaultProfile",
+	"initialPosition": "5140,430",
+	"keybindings": [
+		{
+			"id": "User.sendInput.8F63D3A9",
+			"keys": "shift+enter"
+		},
+		{
+			"id": "User.splitPane.A6751878",
+			"keys": "alt+shift+d"
+		},
+		{
+			"id": "User.find",
+			"keys": "ctrl+shift+f"
+		},
+		{
+			"id": "User.paste",
+			"keys": "ctrl+v"
+		},
+		{
+			"id": "Terminal.ClosePane",
+			"keys": "alt+shift+w"
+		},
+		{
+			"id": "User.copy.644BA8F2",
+			"keys": "ctrl+c"
+		}
+	],
+	"launchMode": "default",
+	"newTabMenu": [
+		{
+			"type": "remainingProfiles"
+		}
+	],
+	"profiles": {
+		"defaults": {
+			"colorScheme": "Reepolee",
+			"font": {
+				"cellHeight": "1.1",
+				"face": "Cascadia Mono",
+				"size": 13
+			},
+			"startingDirectory": "C:\\Users\\ales\\code\\_bun\\reepolee"
+		},
+		"list": [
+			{
+				"bellStyle": "taskbar",
+				"font": {
+					"face": "CaskaydiaCove Nerd Font Mono"
+				},
+				"guid": "{5fb123f1-af88-5b5c-8953-d14a8def1978}",
+				"hidden": false,
+				"name": "PowerShell 7",
+				"source": "Windows.Terminal.PowershellCore",
+				"startingDirectory": null
+			},
+			{
+				"bellStyle": "taskbar",
+				"commandline": "C:\\WINDOWS\\system32\\wsl.exe -d Ubuntu-26.04",
+				"font": {
+					"face": "CaskaydiaCove Nerd Font Mono"
+				},
+				"guid": "{5b20f0e4-e223-549f-a2c8-fcdec1c1368c}",
+				"hidden": false,
+				"name": "Ubuntu-26.04",
+				"source": "Microsoft.WSL",
+				"startingDirectory": null
+			},
+			{
+				"bellStyle": "taskbar",
+				"commandline": "ssh m4mini",
+				"font": {
+					"face": "CaskaydiaCove Nerd Font Mono"
+				},
+				"guid": "{11111111-1111-1111-1111-111111111111}",
+				"icon": "C:\\bat\\Terminal-setup\\apple-favicon.ico",
+				"name": "M4Mini",
+				"startingDirectory": "%USERPROFILE%"
+			}
+		]
+	},
+	"schemes": [
+		{
+			"background": "#000000",
+			"black": "#000000",
+			"blue": "#0080FF",
+			"brightBlack": "#555555",
+			"brightBlue": "#5555FF",
+			"brightCyan": "#55FFFF",
+			"brightGreen": "#55FF55",
+			"brightPurple": "#FF55FF",
+			"brightRed": "#FF5555",
+			"brightWhite": "#FFFFFF",
+			"brightYellow": "#FFFF55",
+			"cursorColor": "#00AA00",
+			"cyan": "#00AAAA",
+			"foreground": "#AAAAAA",
+			"green": "#00FF00",
+			"name": "Reepolee",
+			"purple": "#AA00AA",
+			"red": "#FF0000",
+			"selectionBackground": "#FFFFFF",
+			"white": "#AAAAAA",
+			"yellow": "#FFFF00"
+		}
+	],
+	"themes": []
+}
