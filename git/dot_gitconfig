@@ -1,4 +1,5 @@
 [alias]
+        reepublish = !f() { set -e; repo=$(basename "$PWD"); gh repo create "reepolee/$repo" --source=. --private --push; }; f
         lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
         sync-main = !git fetch upstream && git checkout main && git reset --hard upstream/main && git push origin main
         pushf = push origin HEAD
