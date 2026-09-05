@@ -5,4 +5,4 @@ Just a kitchen sink of a developer
 
 Download from [ales.omp.json](ales.omp.json) 
 
-![Theme](bun-theme.png)
+![Theme](ales-theme.png)
