@@ -50,14 +50,15 @@
 					"style": "powerline",
 					"foreground": "#FFF",
 					"background": "#fc3a15",
-					"template": "  {{ .Major }} "
+					"template": " \ue697 {{ .Major }} "
 				},
 				{
 					"type": "dotnet",
 					"style": "powerline",
+					"powerline_symbol": "\ue0b0",
 					"foreground": "#000000",
 					"background": "#00ffff",
-					"template": "  {{ .Major }}.{{ .Minor }}  "
+					"template": " \ue70c {{ .Major }}.{{ .Minor }} "
 				},
 				{
 					"type": "path",
